@@ -1,0 +1,15 @@
+---
+
+#-------------------------------------------------------------------------------
+# This file is used by the Cloud Foundry `cf push` command as the set of
+# initial meta-data settings for the app.
+#
+# You will likely need to modify the `host` property to be unique across the
+# domain you are hosting the app on.
+#-------------------------------------------------------------------------------
+
+applications:
+- name:      fragentsd
+  host:      fragents-pjm
+  memory:    256M
+  command:   node app

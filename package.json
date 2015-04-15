@@ -1,0 +1,30 @@
+{
+  "name":               "fragentsd",
+  "version":            "1.0.0",
+  "description":        "a friendly ragents server",
+  "author":             "pmuellr",
+  "scripts": {
+    "cake":             "cake",
+    "watch":            "cake watch"
+  },
+  "homepage":           "https://github.com/ragents/fragentsd",
+  "license":            "Apache-2.0",
+  "repository": {
+    "type":             "git",
+    "url" :             "https://github.com/ragents/fragentsd.git"
+  },
+  "dependencies": {
+    "async":            "0.9.x",
+    "cfenv":            "1.0.x",
+    "debug":            "2.1.x",
+    "hapi":             "8.4.x",
+    "ragents":          "1.0.x",
+    "ragents-server":   "1.0.x",
+    "underscore":       "1.8.x"
+  },
+  "devDependencies": {
+    "bower":            "1.4.x",
+    "cakex":            "0.1.x",
+    "coffee-script":    "1.9.x"
+  }
+}
