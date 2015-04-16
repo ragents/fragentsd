@@ -15,6 +15,8 @@ function MessageLog() {
 MessageLog.prototype.getMessages = Messages_messages
 MessageLog.prototype.clear       = Messages_clear
 MessageLog.prototype.log         = Messages_log
+MessageLog.prototype.info        = Messages_info
+MessageLog.prototype.error       = Messages_error
 
 //------------------------------------------------------------------------------
 function Messages_messages() {
@@ -27,8 +29,16 @@ function Messages_clear() {
 }
 
 //------------------------------------------------------------------------------
-function Messages_log(message) {
-  this.messages.push(getTime() + " - " + message)
+function Messages_log(message)   { log(this, "log", message) }
+function Messages_info(message)  { log(this, "info", message) }
+function Messages_error(message) { log(this, "error", message) }
+
+function log(logger, cls, message) {
+  logger.messages.push({
+    cls:     "message-" + cls,
+    txt:     getTime() + " - " + message,
+    verbose: cls == "info"
+  })
 }
 
 //------------------------------------------------------------------------------

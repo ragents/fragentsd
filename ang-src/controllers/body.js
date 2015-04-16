@@ -16,19 +16,28 @@ function controller($scope, $document, $location) {
   $scope.subtitle    = ""
 
   $scope.messages      = Logger.getMessages()
-  $scope.logMessage    = logMessage
+  $scope.info          = info
+  $scope.log           = log
+  $scope.error         = error
   $scope.clearMessages = clearMessages
+  $scope.toggleVerbose = toggleVerbose
+  $scope.verbose       = false
 
-  $scope.logMessage("body controller initialized")
+  $scope.info("body controller initialized")
 
   //-----------------------------------
-  function logMessage(message) {
-    Logger.log(message)
-  }
+  function log(message)   { Logger.log(message) }
+  function info(message)  { Logger.info(message) }
+  function error(message) { Logger.error(message) }
 
   //-----------------------------------
   function clearMessages() {
     Logger.clear()
+  }
+
+  //-----------------------------------
+  function toggleVerbose() {
+    $scope.verbose = !$scope.verbose
   }
 }
 

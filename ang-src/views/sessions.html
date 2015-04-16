@@ -2,16 +2,36 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <input type="checkbox" ng-model="verbose" ng-click="toggleVerbose()"> verbose
-    <button class="btn btn-primary btn-sm" ng-click="clearMessages()">Clear</button>
+    <button class="btn btn-primary btn-sm" ng-click="addSession()">Add Session</button>
   </div>
 </div>
 
 <div>
-  <div ng-repeat="message in messages">
-    <span ng-hide="message.verbose && !verbose" ng-class="message.cls">{{message.txt}}</span>
+  <h1>Sessions</h1>
+  <div ng-if="sessions.length === 0">No sessions</div>
+  <div ng-repeat="session in sessions">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>{{session.url}} - {{session.key}}</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="remove-session" ng-click="delSession(session)">
+          <span class="glyphicon glyphicon-remove"></span> remove
+        </div>
+
+        <h4>ragents</h4>
+        <div ng-if="session.ragents.length === 0">No ragents</div>
+        <div ng-repeat="ragent in session.ragent">
+          <span>{{ragent.info.id}} - {{ragent.info.name}}</span>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
+
 
 <!--
 #===============================================================================

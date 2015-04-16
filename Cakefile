@@ -2,6 +2,8 @@
 
 require "cakex"
 
+zlib = require "zlib"
+
 preReqFile = "../ragents-test/tmp/pre-reqs-updated.txt"
 
 #-------------------------------------------------------------------------------
@@ -81,6 +83,18 @@ taskBuild = ->
   log " - cat-source-map'ing"
 
   cat_source_map "--fixFileNames tmp/ang-app.js www/ang-app.js"
+
+  files = ["www/ang-app.js", "www/ang-app.js.map.json"]
+
+  for file in files
+    iFile = file
+    oFile = "#{file}.gz"
+
+    log " - gzipping #{iFile}"
+    iFile = fs.readFileSync(iFile)
+    fs.writeFileSync(oFile, zlib.gzipSync(iFile))
+
+  return
 
 #-------------------------------------------------------------------------------
 taskServe = ->

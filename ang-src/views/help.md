@@ -1,5 +1,37 @@
 <!-- Licensed under the Apache License. See footer for details. -->
 
+fragents
+================================================================================
+
+fragents is a
+[ragents server](https://github.com/ragents/ragents-server),
+which can be used to communicate with
+[ragents](https://github.com/ragents/ragents),
+and has a nice web front end to see all the ragents connected to a session.
+
+The web front end consists of three pages:
+
+- [Sessions](/) - shows sessions attached to, and ragents connected to those
+  sessions
+
+- [Messages](/messages) - shows diagnostic messages for the web front end
+
+- Help - this help page
+
+
+Sessions page
+--------------------------------------------------------------------------------
+
+The Sessions page shows the sessions you are connected to, and the ragents
+connected to that session.
+
+
+
+
+Messages page
+--------------------------------------------------------------------------------
+
+
 source
 --------------------------------------------------------------------------------
 

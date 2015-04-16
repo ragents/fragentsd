@@ -4,7 +4,7 @@ App.controller("MessagesController", controller)
 
 //------------------------------------------------------------------------------
 function controller($scope) {
-  $scope.logMessage("messages controller initialized")
+  $scope.info("messages controller initialized")
 }
 
 //------------------------------------------------------------------------------

@@ -1,10 +1,46 @@
 // Licensed under the Apache License. See footer for details.
 
+var sessions = require("../lib/sessions")
+
 App.controller("SessionsController", controller)
 
 //------------------------------------------------------------------------------
 function controller($scope) {
-  $scope.logMessage("sessions controller initialized")
+  $scope.info("sessions controller initialized")
+
+  $scope.sessions   = sessions.list()
+  $scope.addSession = addSession
+  $scope.delSession = delSession
+
+  //-----------------------------------
+  function addSession() {
+    var url = window.location.origin
+    url = url.replace(/^http:/,  "ws:")
+    url = url.replace(/^https:/, "wss:")
+
+    var sessionOpts = {
+      url: url,
+      key: getRandomKey()
+    }
+
+    var session = sessions.create(sessionOpts)
+    $scope.log("session created at: " + url)
+
+    $scope.digest()
+  }
+
+  //-----------------------------------
+  function delSession(session) {
+    session.del()
+
+    $scope.digest()
+  }
+
+}
+
+//------------------------------------------------------------------------------
+function getRandomKey($scope) {
+  return Math.random().toString().substr(2)
 }
 
 //------------------------------------------------------------------------------

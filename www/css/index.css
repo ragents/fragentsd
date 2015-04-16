@@ -11,6 +11,21 @@
   height: 32px;
 }
 
+.message-log {
+}
+
+.message-info {
+  color: #00F;
+}
+
+.message-error {
+  color: #F00;
+}
+
+.remove-session {
+  color: #F00;
+}
+
 /*
 //==============================================================================
 // Licensed under the Apache License, Version 2.0 (the "License");

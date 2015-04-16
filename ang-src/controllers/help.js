@@ -4,7 +4,7 @@ App.controller("HelpController", controller)
 
 //------------------------------------------------------------------------------
 function controller($scope) {
-  $scope.logMessage("help controller initialized")
+  $scope.info("help controller initialized")
 }
 
 //------------------------------------------------------------------------------
