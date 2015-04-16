@@ -24,7 +24,11 @@
   },
   "devDependencies": {
     "bower":            "1.4.x",
+    "browserify":       "9.0.x",
     "cakex":            "0.1.x",
-    "coffee-script":    "1.9.x"
+    "cat-source-map":   "0.1.x",
+    "coffee-script":    "1.9.x",
+    "marked":           "0.3.x",
+    "minifyify":        "6.4.x"
   }
 }

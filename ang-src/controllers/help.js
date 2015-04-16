@@ -1,18 +1,13 @@
-/* Licensed under the Apache License. See footer for details. */
+// Licensed under the Apache License. See footer for details.
 
-/* pre-definition of ng-cloak to hide template-y goodness */
+App.controller("HelpController", controller)
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none;
+//------------------------------------------------------------------------------
+function controller($scope) {
+  $scope.logMessage("help controller initialized")
 }
 
-.nav-brand-image {
-  width:  32px;
-  height: 32px;
-}
-
-/*
-//==============================================================================
+//------------------------------------------------------------------------------
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -24,5 +19,4 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//==============================================================================
-*/
+//------------------------------------------------------------------------------

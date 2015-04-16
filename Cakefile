@@ -9,7 +9,7 @@ task "watch", "source file changes -> build, serve", -> taskWatch()
 task "build", "run a build",                         -> taskServe()
 task "serve", "start server",                        -> taskServe()
 
-WatchSpec = "lib/**/* www/**/*"
+WatchSpec = "lib/**/* www/**/* ang-src/**/*"
 
 #-------------------------------------------------------------------------------
 mkdir "-p", "tmp"
@@ -36,7 +36,51 @@ taskWatch = ->
 
 #-------------------------------------------------------------------------------
 taskBuild = ->
+  log "building"
   copyBowerFiles "www/bower"
+
+  #----------------------------------
+  log " - building views module"
+
+  viewsDir = "ang-src/views"
+  views = ls viewsDir
+  angMap = {}
+  libArr = []
+  for view in views
+    iFile = "#{viewsDir}/#{view}"
+    [base, ext] = view.split(".")
+
+    if ext is "md"
+      oFile = "tmp/#{view}.html"
+      marked "-i #{iFile} -o #{oFile} --gfm"
+      iFile = oFile
+
+    angMap[base] = cat iFile
+    libArr.push(base)
+
+  JSON.stringify(angMap, null, 4).to "ang-src/views.json"
+  JSON.stringify(libArr, null, 4).to "lib/views.json"
+
+  #----------------------------------
+  log " - browserify'ing"
+
+  # modules = "events path util underscore"
+  # modules = modules.split " "
+
+  # args = modules.map (module) -> "--require #{module}"
+
+  args = []
+  args.push "--entry ang-src/app.js"
+  args.push "--outfile tmp/ang-app.js"
+  args.push "--debug"
+  args.push "--insert-globals"
+
+  browserify args.join " "
+
+  #----------------------------------
+  log " - cat-source-map'ing"
+
+  cat_source_map "--fixFileNames tmp/ang-app.js www/ang-app.js"
 
 #-------------------------------------------------------------------------------
 taskServe = ->

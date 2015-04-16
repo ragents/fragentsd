@@ -17,6 +17,21 @@ module.exports =
       "dist/fonts/*":                     "fonts"
       "dist/js/bootstrap.min.js":         "js"
 
+  angular:
+    version: "1.3.x"
+    files:
+      "angular.min.js":                   "."
+
+  "angular-resource":
+    version: "1.3.x"
+    files:
+      "angular-resource.min.js":          "."
+
+  "angular-route":
+    version: "1.3.x"
+    files:
+      "angular-route.min.js":             "."
+
 #-------------------------------------------------------------------------------
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

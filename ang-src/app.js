@@ -1,10 +1,20 @@
 // Licensed under the Apache License. See footer for details.
 
-$(onLoad)
+window.App = angular.module("app", [ "ngRoute", "ngResource" ])
 
-//------------------------------------------------------------------------------
-function onLoad() {
-}
+require("./controllers/body")
+require("./controllers/help")
+require("./controllers/messages")
+require("./controllers/sessions")
+require("./routes")
+
+// auto-close response navbar items when clicked
+// https://github.com/twbs/bootstrap/issues/9013
+$(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') ) {
+        $(this).collapse('hide');
+    }
+})
 
 //------------------------------------------------------------------------------
 // Licensed under the Apache License, Version 2.0 (the "License");
