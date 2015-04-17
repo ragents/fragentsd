@@ -25,11 +25,19 @@ Sessions page
 The Sessions page shows the sessions you are connected to, and the ragents
 connected to that session.
 
+You can click on the "Add Session" button to create a new session on the
+server.  This will show up as a new panel under the "Sessions" header,
+and show you the connected ragents.  You can disconnect (and forget) the
+session by clicking the "x remove" button beside the session URL.
 
 
 
 Messages page
 --------------------------------------------------------------------------------
+
+You can click the "verbose" check-box to show informational messages, and
+click the "Clear" button to clear all the messages.
+
 
 
 source

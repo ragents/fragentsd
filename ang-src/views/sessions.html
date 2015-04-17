@@ -13,13 +13,15 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3>{{session.url}} - {{session.key}}</h3>
+        <h3>
+          {{session.url}}#{{session.key}}
+          <button ng-click="delSession(session)" type="button" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove"></span> remove
+          </button>
+        </h3>
       </div>
       <div class="panel-body">
 
-        <div class="remove-session" ng-click="delSession(session)">
-          <span class="glyphicon glyphicon-remove"></span> remove
-        </div>
 
         <h4>ragents</h4>
         <div ng-if="session.ragents.length === 0">No ragents</div>
