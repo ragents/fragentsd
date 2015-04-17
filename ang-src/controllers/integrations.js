@@ -1,37 +1,10 @@
 // Licensed under the Apache License. See footer for details.
 
-var views = require("./views.json")
-
-App.config(config)
+App.controller("IntegrationsController", controller)
 
 //------------------------------------------------------------------------------
-function config($locationProvider, $routeProvider) {
-  $locationProvider.html5Mode({
-    enabled:     true,
-    requireBase: false
-  })
-
-  $routeProvider.when("/", {
-    controller: "SessionsController",
-    template:   views.sessions
-  })
-
-  $routeProvider.when("/integrations", {
-    controller: "IntegrationsController",
-    template:   views.integrations
-  })
-
-  $routeProvider.when("/messages", {
-    controller: "MessagesController",
-    template:   views.messages
-  })
-
-  $routeProvider.when("/help", {
-    controller: "HelpController",
-    template:   views.help
-  })
-
-  $routeProvider.otherwise( { redirectTo: "/" } )
+function controller($scope) {
+  $scope.info("integrations controller initialized")
 }
 
 //------------------------------------------------------------------------------

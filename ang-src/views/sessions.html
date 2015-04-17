@@ -1,39 +1,48 @@
 <!-- Licensed under the Apache License. See footer for details. -->
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <button class="btn btn-primary btn-sm" ng-click="addSession()">Add Session</button>
-  </div>
-</div>
+<h1>
+  Sessions
+  <button class="btn btn-primary btn-sm pull-right" ng-click="addSession()">Add Session</button>
+</h1>
 
-<div>
-  <h1>Sessions</h1>
-  <div ng-if="sessions.length === 0">No sessions</div>
-  <div ng-repeat="session in sessions">
+<div ng-if="sessions.length === 0">No sessions</div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>
-          {{session.url}}#{{session.key}}
-          <button ng-click="delSession(session)" type="button" class="btn btn-danger">
-            <span class="glyphicon glyphicon-remove"></span> remove
-          </button>
-        </h3>
-      </div>
-      <div class="panel-body">
+<div ng-repeat="session in sessions">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        {{session.url}}#{{session.key}}
+        <span class="pull-right">
+        <button ng-click="delSession(session)" type="button" class="btn btn-danger">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </span>
+      </h4>
+    </div>
+    <div class="panel-body">
 
 
-        <h4>ragents</h4>
-        <div ng-if="session.ragents.length === 0">No ragents</div>
-        <div ng-repeat="ragent in session.ragent">
-          <span>{{ragent.info.id}} - {{ragent.info.name}}</span>
-        </div>
+      <h4>ragents</h4>
+      <div ng-if="!session.ragents.length">No ragents</div>
 
-      </div>
+      <table ng-if="session.ragents.length" class="table table-condensed table-striped">
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>title</th>
+        </tr>
+
+        <tr ng-repeat="ragent in session.ragents">
+          <td>{{ragent.info.id}}
+          <td>{{ragent.info.name}}
+          <td>{{ragent.info.title}}
+        </tr>
+      </table>
+
     </div>
   </div>
 </div>
-
 
 <!--
 #===============================================================================

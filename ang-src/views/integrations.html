@@ -1,18 +1,15 @@
 <!-- Licensed under the Apache License. See footer for details. -->
 
-<div>
-  <span class="pull-right">
-    <input type="checkbox" ng-model="verbose" ng-click="toggleVerbose()"> verbose
-    <button class="btn btn-primary btn-sm" ng-click="clearMessages()">Clear</button>
-  </span>
-  <h1>Messages</h1>
+<h1>
+  Integrations
+  <button class="btn btn-primary btn-sm pull-right" ng-click="addIntegration()">Add Integration</button>
+</h1>
+
+<div ng-if="integrations.length === 0">No integrations</div>
+
+<div ng-repeat="integration in integrations">
 </div>
 
-<div>
-  <div ng-repeat="message in messages">
-    <span ng-hide="message.verbose && !verbose" ng-class="message.cls">{{message.txt}}</span>
-  </div>
-</div>
 
 <!--
 #===============================================================================

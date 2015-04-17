@@ -3,7 +3,9 @@
 fragents
 ================================================================================
 
-fragents is a
+<img src="images/ragents.png" style="float:right;">
+
+fragents is a Friendly
 [ragents server](https://github.com/ragents/ragents-server),
 which can be used to communicate with
 [ragents](https://github.com/ragents/ragents),
@@ -13,6 +15,9 @@ The web front end consists of three pages:
 
 - [Sessions](/) - shows sessions attached to, and ragents connected to those
   sessions
+
+- [Integrations](/integrations) - shows integrations you've created, to link
+  to other ragents-capable applications
 
 - [Messages](/messages) - shows diagnostic messages for the web front end
 
@@ -31,6 +36,21 @@ and show you the connected ragents.  You can disconnect (and forget) the
 session by clicking the "x remove" button beside the session URL.
 
 
+Integrations page
+--------------------------------------------------------------------------------
+
+The integrations page shows integrations you've defined, which allow you to
+link connected ragents to other ragents-capable application.
+
+You can click on the "Add Integration" button to create a new integration.  An
+integration has a human readable name, a ragent name to match with connected
+ragents, and a URL pointing to the integration application.  You can delete
+the integration by clicking the "x remove" button beside the integration.
+
+Integrations will be launched in a new browser window, with the specified URL
+that has a fragment suffixed to it, which is the ragents server URL (which
+itself has a fragment).
+
 
 Messages page
 --------------------------------------------------------------------------------
@@ -39,24 +59,12 @@ You can click the "verbose" check-box to show informational messages, and
 click the "Clear" button to clear all the messages.
 
 
-
-source
---------------------------------------------------------------------------------
-
-fork me at [GitHub]({{pkg.homepage}})
-
-
-
-attributions
---------------------------------------------------------------------------------
-
-
-
 version
 --------------------------------------------------------------------------------
 
 package: {{pkg.name}}, version: {{pkg.version}}
 
+fork me at [GitHub]({{pkg.homepage}})
 
 
 <!--

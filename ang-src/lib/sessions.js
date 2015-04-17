@@ -2,8 +2,9 @@
 
 var ragents = require("ragents")
 
-exports.create = create
-exports.list   = list
+exports.create   = create
+exports.list     = list
+exports.onUpdate = onUpdate
 
 var States = {
   notConnected: "not connected",
@@ -11,12 +12,25 @@ var States = {
   connected:    "connected"
 }
 
-var Sessions = []
+var Sessions        = []
+var OnUpdateHandler = null
 
 //------------------------------------------------------------------------------
 function initialize() {
   restoreSessions()
 }
+
+//------------------------------------------------------------------------------
+function onUpdate(onUpdateHandler) {
+  OnUpdateHandler = onUpdateHandler
+}
+
+//------------------------------------------------------------------------------
+function updated() {
+  if (!OnUpdateHandler) return
+  OnUpdateHandler()
+}
+
 
 //------------------------------------------------------------------------------
 function create(config) {
@@ -63,6 +77,8 @@ function restoreSessions() {
   savedSessions.forEach(function(sessionConfig){
     create(sessionConfig)
   })
+
+  updated()
 }
 
 //------------------------------------------------------------------------------
@@ -98,11 +114,13 @@ function Session_connect() {
     if (err) {
       session.state = States.notConnected
       console.log("error during session creation: " + err)
+      updated()
       return
     }
 
     session.rSession = rSession
     session.state    = States.connected
+    updated()
 
     rSession.on("ragentCreated",   ragentCreated)
     rSession.on("ragentDestroyed", ragentDestroyed)
@@ -115,7 +133,7 @@ function Session_connect() {
   }
 
   //-----------------------------------
-  function ragentDestroyed() {
+  function ragentDestroyed(ragent) {
     session._delRagent(ragent)
   }
 
@@ -145,6 +163,8 @@ function Session_del() {
   if (index == -1) return
 
   Sessions.splice(index, 1)
+  saveSessions()
+  updated()
 }
 
 //------------------------------------------------------------------------------
@@ -166,6 +186,7 @@ function Session__addRagent(ragent) {
   }
 
   this.ragents.push(ragent)
+  updated()
 }
 
 //------------------------------------------------------------------------------
@@ -182,6 +203,7 @@ function Session__delRagent(ragent) {
   if (index == -1) return
 
   this.ragents.splice(index, 1)
+  updated()
 }
 
 //------------------------------------------------------------------------------

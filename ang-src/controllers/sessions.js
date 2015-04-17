@@ -12,6 +12,14 @@ function controller($scope) {
   $scope.addSession = addSession
   $scope.delSession = delSession
 
+  sessions.onUpdate(function() {
+    try { $scope.$apply() } catch (e) {}
+  })
+
+  $scope.$on("$destroy", function() {
+    sessions.onUpdate(null)
+  })
+
   //-----------------------------------
   function addSession() {
     var url = window.location.origin
@@ -25,15 +33,11 @@ function controller($scope) {
 
     var session = sessions.create(sessionOpts)
     $scope.log("session created at: " + url)
-
-    $scope.digest()
   }
 
   //-----------------------------------
   function delSession(session) {
     session.del()
-
-    $scope.digest()
   }
 
 }
