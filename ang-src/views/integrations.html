@@ -7,7 +7,21 @@
 
 <div ng-if="integrations.length === 0">No integrations</div>
 
+<table class="table table-striped table-condensed">
+  <tr>
+    <th>name</th>
+    <th>url</th>
+  </tr>
+
+  <tr ng-repeat="integration in integrations">
+    <td>{{integration.name}</td>
+    <td>{{integration.url}</td>
+  </tr>
+</table>
+
+
 <div ng-repeat="integration in integrations">
+
 </div>
 
 

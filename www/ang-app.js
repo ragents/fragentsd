@@ -6,6 +6,7 @@ window.App = angular.module("app", [ "ngRoute", "ngResource" ])
 
 require("./controllers/body")
 require("./controllers/help")
+require("./controllers/integrations")
 require("./controllers/messages")
 require("./controllers/sessions")
 require("./routes")
@@ -34,7 +35,7 @@ $(document).on('click','.navbar-collapse.in',function(e) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/app.js","/ang-src")
 
-},{"./controllers/body":2,"./controllers/help":3,"./controllers/messages":4,"./controllers/sessions":5,"./routes":8,"_process":17,"buffer":10}],2:[function(require,module,exports){
+},{"./controllers/body":2,"./controllers/help":3,"./controllers/integrations":4,"./controllers/messages":5,"./controllers/sessions":6,"./routes":9,"_process":18,"buffer":11}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -52,6 +53,10 @@ function controller($scope, $document, $location) {
   $scope.pkg         = pkg
   $scope.TitlePrefix = TitlePrefix
   $scope.subtitle    = ""
+
+  $scope.integrations = [
+    {name: "ragent-console", url: "http://ragents.github.io/ragent-console/" }
+  ]
 
   $scope.messages      = Logger.getMessages()
   $scope.info          = info
@@ -114,7 +119,7 @@ function setTitle($scope, $document, $location) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/controllers/body.js","/ang-src/controllers")
 
-},{"../../package.json":37,"../lib/messageLog":6,"_process":17,"buffer":10}],3:[function(require,module,exports){
+},{"../../package.json":38,"../lib/messageLog":7,"_process":18,"buffer":11}],3:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -141,7 +146,34 @@ function controller($scope) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/controllers/help.js","/ang-src/controllers")
 
-},{"_process":17,"buffer":10}],4:[function(require,module,exports){
+},{"_process":18,"buffer":11}],4:[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+// Licensed under the Apache License. See footer for details.
+
+App.controller("IntegrationsController", controller)
+
+//------------------------------------------------------------------------------
+function controller($scope) {
+  $scope.info("integrations controller initialized")
+}
+
+//------------------------------------------------------------------------------
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//------------------------------------------------------------------------------
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/controllers/integrations.js","/ang-src/controllers")
+
+},{"_process":18,"buffer":11}],5:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -168,7 +200,7 @@ function controller($scope) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/controllers/messages.js","/ang-src/controllers")
 
-},{"_process":17,"buffer":10}],5:[function(require,module,exports){
+},{"_process":18,"buffer":11}],6:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -235,7 +267,7 @@ function getRandomKey($scope) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/controllers/sessions.js","/ang-src/controllers")
 
-},{"../lib/sessions":7,"_process":17,"buffer":10}],6:[function(require,module,exports){
+},{"../lib/sessions":8,"_process":18,"buffer":11}],7:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -313,7 +345,7 @@ function right2(s) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/lib/messageLog.js","/ang-src/lib")
 
-},{"_process":17,"buffer":10}],7:[function(require,module,exports){
+},{"_process":18,"buffer":11}],8:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -542,7 +574,7 @@ initialize()
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/lib/sessions.js","/ang-src/lib")
 
-},{"_process":17,"buffer":10,"ragents":31}],8:[function(require,module,exports){
+},{"_process":18,"buffer":11,"ragents":32}],9:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -596,14 +628,14 @@ function config($locationProvider, $routeProvider) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/ang-src/routes.js","/ang-src")
 
-},{"./views.json":9,"_process":17,"buffer":10}],9:[function(require,module,exports){
+},{"./views.json":10,"_process":18,"buffer":11}],10:[function(require,module,exports){
 module.exports={
     "help": "<!-- Licensed under the Apache License. See footer for details. -->\n<h1 id=\"fragents\">fragents</h1>\n<p><img src=\"images/ragents.png\" style=\"float:right;\"></p>\n<p>fragents is a Friendly\n<a href=\"https://github.com/ragents/ragents-server\">ragents server</a>,\nwhich can be used to communicate with\n<a href=\"https://github.com/ragents/ragents\">ragents</a>,\nand has a nice web front end to see all the ragents connected to a session.</p>\n<p>The web front end consists of three pages:</p>\n<ul>\n<li><p><a href=\"/\">Sessions</a> - shows sessions attached to, and ragents connected to those\nsessions</p>\n</li>\n<li><p><a href=\"/integrations\">Integrations</a> - shows integrations you&#39;ve created, to link\nto other ragents-capable applications</p>\n</li>\n<li><p><a href=\"/messages\">Messages</a> - shows diagnostic messages for the web front end</p>\n</li>\n<li><p>Help - this help page</p>\n</li>\n</ul>\n<h2 id=\"sessions-page\">Sessions page</h2>\n<p>The Sessions page shows the sessions you are connected to, and the ragents\nconnected to that session.</p>\n<p>You can click on the &quot;Add Session&quot; button to create a new session on the\nserver.  This will show up as a new panel under the &quot;Sessions&quot; header,\nand show you the connected ragents.  You can disconnect (and forget) the\nsession by clicking the &quot;x remove&quot; button beside the session URL.</p>\n<h2 id=\"integrations-page\">Integrations page</h2>\n<p>The integrations page shows integrations you&#39;ve defined, which allow you to\nlink connected ragents to other ragents-capable application.</p>\n<p>You can click on the &quot;Add Integration&quot; button to create a new integration.  An\nintegration has a human readable name, a ragent name to match with connected\nragents, and a URL pointing to the integration application.  You can delete\nthe integration by clicking the &quot;x remove&quot; button beside the integration.</p>\n<p>Integrations will be launched in a new browser window, with the specified URL\nthat has a fragment suffixed to it, which is the ragents server URL (which\nitself has a fragment).</p>\n<h2 id=\"messages-page\">Messages page</h2>\n<p>You can click the &quot;verbose&quot; check-box to show informational messages, and\nclick the &quot;Clear&quot; button to clear all the messages.</p>\n<h2 id=\"version\">version</h2>\n<p>package: {{pkg.name}}, version: {{pkg.version}}</p>\n<p>fork me at <a href=\"{{pkg.homepage}}\">GitHub</a></p>\n<!--\n#===============================================================================\n# Copyright IBM Corp. 2014\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#    http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#===============================================================================\n-->\n",
-    "integrations": "<!-- Licensed under the Apache License. See footer for details. -->\n\n<h1>\n  Integrations\n  <button class=\"btn btn-primary btn-sm pull-right\" ng-click=\"addIntegration()\">Add Integration</button>\n</h1>\n\n<div ng-if=\"integrations.length === 0\">No integrations</div>\n\n<div ng-repeat=\"integration in integrations\">\n</div>\n\n\n<!--\n#===============================================================================\n# Copyright IBM Corp. 2014\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#    http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#===============================================================================\n-->\n",
+    "integrations": "<!-- Licensed under the Apache License. See footer for details. -->\n\n<h1>\n  Integrations\n  <button class=\"btn btn-primary btn-sm pull-right\" ng-click=\"addIntegration()\">Add Integration</button>\n</h1>\n\n<div ng-if=\"integrations.length === 0\">No integrations</div>\n\n<table class=\"table table-striped table-condensed\">\n  <tr>\n    <th>name</th>\n    <th>url</th>\n  </tr>\n\n  <tr ng-repeat=\"integration in integrations\">\n    <td>{{integration.name}</td>\n    <td>{{integration.url}</td>\n  </tr>\n</table>\n\n\n<div ng-repeat=\"integration in integrations\">\n\n</div>\n\n\n<!--\n#===============================================================================\n# Copyright IBM Corp. 2014\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#    http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#===============================================================================\n-->\n",
     "messages": "<!-- Licensed under the Apache License. See footer for details. -->\n\n<div>\n  <span class=\"pull-right\">\n    <input type=\"checkbox\" ng-model=\"verbose\" ng-click=\"toggleVerbose()\"> verbose\n    <button class=\"btn btn-primary btn-sm\" ng-click=\"clearMessages()\">Clear</button>\n  </span>\n  <h1>Messages</h1>\n</div>\n\n<div>\n  <div ng-repeat=\"message in messages\">\n    <span ng-hide=\"message.verbose && !verbose\" ng-class=\"message.cls\">{{message.txt}}</span>\n  </div>\n</div>\n\n<!--\n#===============================================================================\n# Copyright IBM Corp. 2014\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#    http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#===============================================================================\n-->\n",
-    "sessions": "<!-- Licensed under the Apache License. See footer for details. -->\n\n<h1>\n  Sessions\n  <button class=\"btn btn-primary btn-sm pull-right\" ng-click=\"addSession()\">Add Session</button>\n</h1>\n\n<div ng-if=\"sessions.length === 0\">No sessions</div>\n\n<div ng-repeat=\"session in sessions\">\n\n  <div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4>\n        {{session.url}}#{{session.key}}\n        <span class=\"pull-right\">\n        <button ng-click=\"delSession(session)\" type=\"button\" class=\"btn btn-danger\">\n          <span class=\"glyphicon glyphicon-remove\"></span>\n        </button>\n      </span>\n      </h4>\n    </div>\n    <div class=\"panel-body\">\n\n\n      <h4>ragents</h4>\n      <div ng-if=\"!session.ragents.length\">No ragents</div>\n\n      <table ng-if=\"session.ragents.length\" class=\"table table-condensed table-striped\">\n        <tr>\n          <th>id</th>\n          <th>name</th>\n          <th>title</th>\n        </tr>\n\n        <tr ng-repeat=\"ragent in session.ragents\">\n          <td>{{ragent.info.id}}\n          <td>{{ragent.info.name}}\n          <td>{{ragent.info.title}}\n        </tr>\n      </table>\n\n    </div>\n  </div>\n</div>\n\n<!--\n#===============================================================================\n# Copyright IBM Corp. 2014\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#    http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#===============================================================================\n-->\n"
+    "sessions": "<!-- Licensed under the Apache License. See footer for details. -->\n\n<h1>\n  Sessions\n  <button class=\"btn btn-primary btn-sm pull-right\" ng-click=\"addSession()\">Add Session</button>\n</h1>\n\n<div ng-if=\"sessions.length === 0\">No sessions</div>\n\n<div ng-repeat=\"session in sessions\">\n\n  <div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4>\n        {{session.url}}#{{session.key}}\n        <span class=\"pull-right\">\n          <button ng-click=\"delSession(session)\" type=\"button\" class=\"btn btn-danger\">\n            <span class=\"glyphicon glyphicon-remove\"></span>\n          </button>\n        </span>\n      </h4>\n\n    </div>\n\n    <div class=\"panel-body\">\n      <h4>ragents</h4>\n      <div ng-if=\"!session.ragents.length\">No ragents</div>\n\n      <table ng-if=\"session.ragents.length\" class=\"table table-condensed table-striped\">\n        <tr>\n          <th>id</th>\n          <th>name</th>\n          <th>title</th>\n        </tr>\n\n        <tr ng-repeat=\"ragent in session.ragents\">\n          <td>{{ragent.info.id}}\n          <td ng-if=\"ragent.info.name != 'ragent-console'\">{{ragent.info.name}}\n          <td ng-if=\"ragent.info.name == 'ragent-console'\">\n            <a href=\"https://ragents.github.io/ragent-console/#{{session.url}}#{{session.key}}\">\n              {{ragent.info.name}}\n            </a>\n          <td>{{ragent.info.title}}\n        </tr>\n      </table>\n\n    </div>\n  </div>\n</div>\n\n<!--\n#===============================================================================\n# Copyright IBM Corp. 2014\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#    http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#===============================================================================\n-->\n"
 }
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*!
  * The buffer module from node.js, for the browser.
@@ -1939,7 +1971,7 @@ function decodeUtf8Char (str) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/buffer/index.js","/node_modules/browserify/node_modules/buffer")
 
-},{"_process":17,"base64-js":11,"buffer":10,"ieee754":12,"is-array":13}],11:[function(require,module,exports){
+},{"_process":18,"base64-js":12,"buffer":11,"ieee754":13,"is-array":14}],12:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
@@ -2068,7 +2100,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/buffer/node_modules/base64-js/lib/b64.js","/node_modules/browserify/node_modules/buffer/node_modules/base64-js/lib")
 
-},{"_process":17,"buffer":10}],12:[function(require,module,exports){
+},{"_process":18,"buffer":11}],13:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 exports.read = function(buffer, offset, isLE, mLen, nBytes) {
   var e, m,
@@ -2157,7 +2189,7 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/buffer/node_modules/ieee754/index.js","/node_modules/browserify/node_modules/buffer/node_modules/ieee754")
 
-},{"_process":17,"buffer":10}],13:[function(require,module,exports){
+},{"_process":18,"buffer":11}],14:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 
 /**
@@ -2195,7 +2227,7 @@ module.exports = isArray || function (val) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/buffer/node_modules/is-array/index.js","/node_modules/browserify/node_modules/buffer/node_modules/is-array")
 
-},{"_process":17,"buffer":10}],14:[function(require,module,exports){
+},{"_process":18,"buffer":11}],15:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -2501,7 +2533,7 @@ function isUndefined(arg) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/events/events.js","/node_modules/browserify/node_modules/events")
 
-},{"_process":17,"buffer":10}],15:[function(require,module,exports){
+},{"_process":18,"buffer":11}],16:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
@@ -2529,7 +2561,7 @@ if (typeof Object.create === 'function') {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/inherits/inherits_browser.js","/node_modules/browserify/node_modules/inherits")
 
-},{"_process":17,"buffer":10}],16:[function(require,module,exports){
+},{"_process":18,"buffer":11}],17:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -2758,7 +2790,7 @@ var substr = 'ab'.substr(-1) === 'b'
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/path-browserify/index.js","/node_modules/browserify/node_modules/path-browserify")
 
-},{"_process":17,"buffer":10}],17:[function(require,module,exports){
+},{"_process":18,"buffer":11}],18:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // shim for using process in browser
 
@@ -2821,7 +2853,7 @@ process.umask = function() { return 0; };
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/process/browser.js","/node_modules/browserify/node_modules/process")
 
-},{"_process":17,"buffer":10}],18:[function(require,module,exports){
+},{"_process":18,"buffer":11}],19:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
@@ -3333,7 +3365,7 @@ process.umask = function() { return 0; };
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/punycode/punycode.js","/node_modules/browserify/node_modules/punycode")
 
-},{"_process":17,"buffer":10}],19:[function(require,module,exports){
+},{"_process":18,"buffer":11}],20:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -3422,7 +3454,7 @@ var isArray = Array.isArray || function (xs) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/querystring-es3/decode.js","/node_modules/browserify/node_modules/querystring-es3")
 
-},{"_process":17,"buffer":10}],20:[function(require,module,exports){
+},{"_process":18,"buffer":11}],21:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -3512,7 +3544,7 @@ var objectKeys = Object.keys || function (obj) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/querystring-es3/encode.js","/node_modules/browserify/node_modules/querystring-es3")
 
-},{"_process":17,"buffer":10}],21:[function(require,module,exports){
+},{"_process":18,"buffer":11}],22:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
@@ -3521,7 +3553,7 @@ exports.encode = exports.stringify = require('./encode');
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/querystring-es3/index.js","/node_modules/browserify/node_modules/querystring-es3")
 
-},{"./decode":19,"./encode":20,"_process":17,"buffer":10}],22:[function(require,module,exports){
+},{"./decode":20,"./encode":21,"_process":18,"buffer":11}],23:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -4233,7 +4265,7 @@ function isNullOrUndefined(arg) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/url/url.js","/node_modules/browserify/node_modules/url")
 
-},{"_process":17,"buffer":10,"punycode":18,"querystring":21}],23:[function(require,module,exports){
+},{"_process":18,"buffer":11,"punycode":19,"querystring":22}],24:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
@@ -4243,7 +4275,7 @@ module.exports = function isBuffer(arg) {
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/util/support/isBufferBrowser.js","/node_modules/browserify/node_modules/util/support")
 
-},{"_process":17,"buffer":10}],24:[function(require,module,exports){
+},{"_process":18,"buffer":11}],25:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -4834,7 +4866,7 @@ function hasOwnProperty(obj, prop) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/browserify/node_modules/util/util.js","/node_modules/browserify/node_modules/util")
 
-},{"./support/isBuffer":23,"_process":17,"buffer":10,"inherits":15}],25:[function(require,module,exports){
+},{"./support/isBuffer":24,"_process":18,"buffer":11,"inherits":16}],26:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 
 /**
@@ -5014,7 +5046,7 @@ function localstorage(){
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/debug/browser.js","/node_modules/debug")
 
-},{"./debug":26,"_process":17,"buffer":10}],26:[function(require,module,exports){
+},{"./debug":27,"_process":18,"buffer":11}],27:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 
 /**
@@ -5216,7 +5248,7 @@ function coerce(val) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/debug/debug.js","/node_modules/debug")
 
-},{"_process":17,"buffer":10,"ms":27}],27:[function(require,module,exports){
+},{"_process":18,"buffer":11,"ms":28}],28:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Helpers.
@@ -5344,7 +5376,7 @@ function plural(ms, n, name) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/debug/node_modules/ms/index.js","/node_modules/debug/node_modules/ms")
 
-},{"_process":17,"buffer":10}],28:[function(require,module,exports){
+},{"_process":18,"buffer":11}],29:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -5565,7 +5597,7 @@ function RAgent_onEvent(message) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/lib/agents.js","/node_modules/ragents/lib")
 
-},{"./smap":33,"./utils":34,"_process":17,"buffer":10,"debug":25,"events":14,"underscore":35,"util":24}],29:[function(require,module,exports){
+},{"./smap":34,"./utils":35,"_process":18,"buffer":11,"debug":26,"events":15,"underscore":36,"util":25}],30:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -5621,7 +5653,7 @@ function fromWebSocketURL(url) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/lib/channels.js","/node_modules/ragents/lib")
 
-},{"./channels/WebSocket":30,"./utils":34,"_process":17,"buffer":10,"debug":25,"events":14,"url":22,"util":24}],30:[function(require,module,exports){
+},{"./channels/WebSocket":31,"./utils":35,"_process":18,"buffer":11,"debug":26,"events":15,"url":23,"util":25}],31:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -5731,7 +5763,7 @@ function Channel_close() {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/lib/channels/WebSocket.js","/node_modules/ragents/lib/channels")
 
-},{"../utils":34,"_process":17,"buffer":10,"debug":25,"events":14,"util":24}],31:[function(require,module,exports){
+},{"../utils":35,"_process":18,"buffer":11,"debug":26,"events":15,"util":25}],32:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -5793,7 +5825,7 @@ function checkOpts(config, cb) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/lib/ragents.js","/node_modules/ragents/lib")
 
-},{"./session":32,"./utils":34,"_process":17,"buffer":10,"debug":25,"underscore":35}],32:[function(require,module,exports){
+},{"./session":33,"./utils":35,"_process":18,"buffer":11,"debug":26,"underscore":36}],33:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -6078,7 +6110,7 @@ function Session_sendMessage(message) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/lib/session.js","/node_modules/ragents/lib")
 
-},{"./agents":28,"./channels":29,"./smap":33,"./utils":34,"_process":17,"buffer":10,"debug":25,"events":14,"underscore":35,"util":24}],33:[function(require,module,exports){
+},{"./agents":29,"./channels":30,"./smap":34,"./utils":35,"_process":18,"buffer":11,"debug":26,"events":15,"underscore":36,"util":25}],34:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -6213,7 +6245,7 @@ function values() {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/lib/smap.js","/node_modules/ragents/lib")
 
-},{"_process":17,"buffer":10,"underscore":35}],34:[function(require,module,exports){
+},{"_process":18,"buffer":11,"underscore":36}],35:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Licensed under the Apache License. See footer for details.
 
@@ -6316,7 +6348,7 @@ function JL(object) { return JSON.stringify(object, null, 4) }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/lib/utils.js","/node_modules/ragents/lib")
 
-},{"../package.json":36,"_process":17,"buffer":10,"debug":25,"path":16,"underscore":35}],35:[function(require,module,exports){
+},{"../package.json":37,"_process":18,"buffer":11,"debug":26,"path":17,"underscore":36}],36:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 //     Underscore.js 1.7.0
 //     http://underscorejs.org
@@ -7736,7 +7768,7 @@ function JL(object) { return JSON.stringify(object, null, 4) }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules/ragents/node_modules/underscore/underscore.js","/node_modules/ragents/node_modules/underscore")
 
-},{"_process":17,"buffer":10}],36:[function(require,module,exports){
+},{"_process":18,"buffer":11}],37:[function(require,module,exports){
 module.exports={
   "name": "ragents",
   "version": "1.0.0",
@@ -7781,7 +7813,7 @@ module.exports={
   "_from": "ragents@>=1.0.0 <1.1.0"
 }
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 module.exports={
   "name":               "fragentsd",
   "version":            "1.0.0",

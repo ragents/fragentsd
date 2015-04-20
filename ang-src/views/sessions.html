@@ -14,15 +14,15 @@
       <h4>
         {{session.url}}#{{session.key}}
         <span class="pull-right">
-        <button ng-click="delSession(session)" type="button" class="btn btn-danger">
-          <span class="glyphicon glyphicon-remove"></span>
-        </button>
-      </span>
+          <button ng-click="delSession(session)" type="button" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </span>
       </h4>
+
     </div>
+
     <div class="panel-body">
-
-
       <h4>ragents</h4>
       <div ng-if="!session.ragents.length">No ragents</div>
 
@@ -35,7 +35,11 @@
 
         <tr ng-repeat="ragent in session.ragents">
           <td>{{ragent.info.id}}
-          <td>{{ragent.info.name}}
+          <td ng-if="ragent.info.name != 'ragent-console'">{{ragent.info.name}}
+          <td ng-if="ragent.info.name == 'ragent-console'">
+            <a href="https://ragents.github.io/ragent-console/#{{session.url}}#{{session.key}}">
+              {{ragent.info.name}}
+            </a>
           <td>{{ragent.info.title}}
         </tr>
       </table>

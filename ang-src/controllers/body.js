@@ -15,6 +15,10 @@ function controller($scope, $document, $location) {
   $scope.TitlePrefix = TitlePrefix
   $scope.subtitle    = ""
 
+  $scope.integrations = [
+    {name: "ragent-console", url: "http://ragents.github.io/ragent-console/" }
+  ]
+
   $scope.messages      = Logger.getMessages()
   $scope.info          = info
   $scope.log           = log

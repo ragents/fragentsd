@@ -4,6 +4,7 @@ window.App = angular.module("app", [ "ngRoute", "ngResource" ])
 
 require("./controllers/body")
 require("./controllers/help")
+require("./controllers/integrations")
 require("./controllers/messages")
 require("./controllers/sessions")
 require("./routes")
